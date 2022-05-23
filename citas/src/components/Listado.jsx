@@ -3,7 +3,7 @@ import { Paciente } from './Paciente'
 
 export const Listado = ({ pacientes, setPaciente, eliminarPaciente }) => {
     return (
-        <div className='bg-slate-700 mx-10 md:mt-0 mt-5 p-10 rounded-lg mb-10 overflow-y-scroll md:h-screen md:w-1/2 lg:w-3/5' >
+        <div className='bg-slate-700 mr-10 mt-10 md:mt-0 mx-10 md:mx-10mt-5 p-10 rounded-lg mb-10 overflow-y-scroll md:h-screen md:w-1/2 lg:w-3/5' >
 
             <div>
                 <h2 className='bg-white text-3xl p-1 text-center rounded-lg text-black'>Listado Pacientes</h2>
