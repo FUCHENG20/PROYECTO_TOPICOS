@@ -11,7 +11,7 @@ export const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
 
     return (
         <div>
-            <div className='mt-5 shadow-md bg-white rounded-lg p-10 uppercase mb-3'>
+            <div className='mt-5 shadow-md bg-white rounded-lg p-8 uppercase mb-3 sm:p-10'>
                 <p className='text-gray-700 font-bold text-xs sm:text-lg'>Nombre Paciente: <span className='font-normal normal-case'>{paciente.nombre}</span></p>
                 <p className='text-gray-700 font-bold text-xs sm:text-lg'>Email: <span className='font-normal normal-case'>{paciente.correo}</span></p>
                 <p className='text-gray-700 font-bold text-xs sm:text-lg'>Fecha: <span className='font-normal normal-case'>{paciente.fecha}</span></p>
