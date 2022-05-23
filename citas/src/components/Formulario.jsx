@@ -73,7 +73,11 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
 
 
     return (
-        <div className='bg-slate-700 rounded-lg mx-10 md:mr-3 p-10 mb-auto md:w-1/2 lg:w-2/5'>
+        <div className='bg-slate-700 rounded-3xl mx-10 md:mr-3 p-10 mb-auto md:w-1/2 lg:w-2/5'>
+            <div>
+                <h2 className='bg-white text-3xl p-1 mb-6 text-center rounded-lg text-black'>Formulario</h2>
+            </div>
+
             {error && <p className='bg-red-700 text-white font-bold p-2 rounded-lg mb-4 text-center'>DEBES DE LLENAR LOS CAMPOS</p>}
             <form action="" onSubmit={validarFormulario}>
                 <div className='mb-3 font-bold'>
@@ -97,7 +101,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
                 </div>
 
                 <div>
-                    <input className="bg-slate-700 border-2 rounded-2xl w-full p-2 hover:cursor-pointer hover:bg-slate-800" type="submit" id='submit' value={paciente.id ? 'Actualizar Paciente' : 'Agregar'} />
+                    <input className="bg-slate-700 border-2 rounded-2xl font-bold mt-5 w-full p-2 hover:cursor-pointer hover:bg-slate-800" type="submit" id='submit' value={paciente.id ? 'ACTUALIZAR PACIENTE' : 'AGREGAR'} />
                 </div>
             </form >
         </div >
