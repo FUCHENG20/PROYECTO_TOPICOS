@@ -7,7 +7,7 @@ export const Listado = ({ pacientes, setPaciente, eliminarPaciente }) => {
 
             <div>
                 <h2 className='bg-white text-xl border-2 border-black p-1 text-center rounded-lg text-black sm:text-3xl sm: font-bold'>Listado Pacientes</h2>
-                <p className=' mt-5 text-sm sm:text-xl sm:font-bold'>Administra tus <span className='font-bold text-sm text-emerald-500 sm:text-xl sm:font-bold'>Pacientes y Citas</span></p>
+                <p className=' mt-5 text-sm sm:text-xl sm:font-bold text-white text-center '>Administra tus <span className='font-bold text-sm text-blue-500 sm:text-xl sm:font-bold'>Pacientes y Citas</span></p>
             </div>
 
             {pacientes.map(paciente => (

@@ -77,6 +77,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
             {error && <p className='bg-red-700 text-white font-bold p-2 rounded-lg mb-4 text-center'>DEBES DE LLENAR LOS CAMPOS</p>}
             <div>
                 <h2 className='bg-white border-2 border-black text-xl p-1 mb-6 text-center rounded-lg text-black sm:text-3xl sm:font-bold'>Formulario</h2>
+                <p className=' mt-5 text-sm sm:text-xl sm:font-bold mb-4 text-white text-center'>Registrar Nuevos <span className='font-bold text-sm text-blue-500 sm:text-xl sm:font-bold'>Pacientes y Citas</span></p>
             </div>
             <form action="" onSubmit={validarFormulario}>
                 <div className='mb-3 font-bold'>
