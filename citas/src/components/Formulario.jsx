@@ -73,7 +73,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
 
 
     return (
-        <div className='bg-slate-700 rounded-3xl mx-10 md:mr-3 p-10 mb-auto md:w-1/2 lg:w-2/5'>
+        <div className='bg-slate-700 border-2 rounded-3xl mx-10 md:mr-3 p-10 mb-auto md:w-1/2 lg:w-2/5'>
             <div>
                 <h2 className='bg-white text-3xl p-1 mb-6 text-center rounded-lg text-black'>Formulario</h2>
             </div>
