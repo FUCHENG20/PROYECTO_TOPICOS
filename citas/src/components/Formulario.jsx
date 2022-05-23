@@ -52,7 +52,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
 
             const pacientesActualizados = pacientes.map(remplazo => (remplazo.id === paciente.id ? objetoPaciente : remplazo));
             setPacientes(pacientesActualizados)
-            setPaciente = ({});
+            setPaciente({});
         }
         else {
             // AGREGAMOS PACIENTES
@@ -97,7 +97,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
                 </div>
 
                 <div>
-                    <input className="bg-slate-700 border-2 rounded-2xl w-full p-2 hover:cursor-pointer hover:bg-slate-800" type="submit" value={paciente.id ? 'Actualizar Paciente' : 'Agregar'} />
+                    <input className="bg-slate-700 border-2 rounded-2xl w-full p-2 hover:cursor-pointer hover:bg-slate-800" type="submit" id='submit' value={paciente.id ? 'Actualizar Paciente' : 'Agregar'} />
                 </div>
             </form >
         </div >
