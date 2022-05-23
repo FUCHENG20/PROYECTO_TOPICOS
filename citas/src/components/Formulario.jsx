@@ -74,11 +74,10 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
 
     return (
         <div className='bg-slate-700 border-2 rounded-3xl mx-10 md:mr-3 p-10 mb-auto md:w-1/2 lg:w-2/5'>
-            <div>
-                <h2 className='bg-white text-3xl p-1 mb-6 text-center rounded-lg text-black'>Formulario</h2>
-            </div>
-
             {error && <p className='bg-red-700 text-white font-bold p-2 rounded-lg mb-4 text-center'>DEBES DE LLENAR LOS CAMPOS</p>}
+            <div>
+                <h2 className='bg-white border-2 border-black text-3xl p-1 mb-6 text-center rounded-lg text-black'>Formulario</h2>
+            </div>
             <form action="" onSubmit={validarFormulario}>
                 <div className='mb-3 font-bold'>
                     <label >Nombre Paciente</label>
@@ -87,7 +86,7 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
 
                 <div className='mb-3 font-bold'>
                     <label>Correo</label>
-                    <input className='block w-full rounded-lg text-black p-2' placeholder="correo electronico" type="email" name='correo' value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input className='block w-full rounded-lg text-black p-2' placeholder="correo electrónico" type="email" name='correo' value={correo} onChange={(e) => setCorreo(e.target.value)} />
                 </div>
 
                 <div className='mb-3 font-bold'>
@@ -96,8 +95,8 @@ export const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) =
                 </div>
 
                 <div className='mb-3 font-bold'>
-                    <label>Sintomas</label>
-                    <textarea className='block w-full rounded-lg text-black p-2 mb-4' name="sintomas" id="" cols="30" rows="5" placeholder="sintomas" value={sintomas} onChange={(e) => setSintomas(e.target.value)}></textarea>
+                    <label>Síntomas</label>
+                    <textarea className='block w-full rounded-lg text-black p-2 mb-4' name="sintomas" id="" cols="30" rows="5" placeholder="síntomas" value={sintomas} onChange={(e) => setSintomas(e.target.value)}></textarea>
                 </div>
 
                 <div>
