@@ -40,3 +40,7 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+body{
+  background-image: linear-gradient(to right top, #39589d, #2069a9, #007ab1, #0089b6, #0098b8, #18a4bd, #2db0c1, #40bcc5, #5ac9d1, #70d7dd, #85e4e9, #99f2f6);
+}

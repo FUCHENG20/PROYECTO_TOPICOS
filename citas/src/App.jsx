@@ -28,7 +28,7 @@ function App() {
   return (
     <div className='text-[#85BBB2]'>
       <Cabecera />
-      <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+      <div className='mt-3 md:flex w-full'>
         <Formulario
           setPacientes={setPacientes}
           pacientes={pacientes}
