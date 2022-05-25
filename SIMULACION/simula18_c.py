@@ -95,7 +95,7 @@ class Analisis():
         ttk.Radiobutton(radioboton, text="Numpy", variable=opcion,
                         value=3).pack()
 
-        # Tipo de Probabilidad
+        # Tipo de Problema
         self.opciones = ttk.Combobox(sol, width=10, state='randonly')
         self.opciones['value'] = ('<', '<=', '>', '>=', 'a<=x<=b')
         self.opciones.grid(column=1, row=2)
