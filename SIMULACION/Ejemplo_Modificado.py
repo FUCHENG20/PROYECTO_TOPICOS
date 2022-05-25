@@ -41,12 +41,10 @@ class Analisis(ttk.Frame):
         my_menu.add_cascade(label="Archivo", menu=file_menu)
         my_menu.add_cascade(label="Acciones", menu=action_menu)
 
-        # Sub Elementos para file
+        # Menu Desplegable
         file_menu.add_command(
             label="Obtener", command=lambda: self.abrir_archivo())
         file_menu.add_separator()
-        
-        # Botones
         file_menu.add_command(label="Salir", command=root.quit)
         action_menu.add_command(label="Simular", command=lambda: self.simula())
         root.configure(menu=my_menu)
@@ -92,13 +90,14 @@ class Analisis(ttk.Frame):
         ################################################################
         # CAMPOS
 
-        ttk.Label(info1, text="Tipo de Simulación :",
+        # Label - Encabezados
+        ttk.Label(info1, text="Tipo de Simulación :", font=("Helvetica", 10, "bold") ,
                   justify=LEFT).grid(sticky=W)
-        ttk.Label(info2, text="Intervalos:", justify=LEFT).grid(
+        ttk.Label(info2, text="Intervalos:", font=("Helvetica", 10, "bold"), justify=LEFT).grid(
             sticky=W)
-        ttk.Label(info3, text="Tipos de Intervalo: ", justify=LEFT).grid(
+        ttk.Label(info3, text="Tipos de Intervalo: ", font=("Helvetica", 10, "bold") , justify=LEFT).grid(
             sticky=W)
-        ttk.Label(info4, text="Solución: ", justify=LEFT).grid(
+        ttk.Label(info4, text="Solución: ", font=("Helvetica", 10, "bold") , justify=LEFT).grid(
             sticky=W)
 
         
@@ -108,7 +107,7 @@ class Analisis(ttk.Frame):
         # Tipo de Simulación
         self.opcion = IntVar()
         
-        self.metodo1 = ttk.Radiobutton(radioboton, text="Ecuacion", variable=self.opcion, 
+        self.metodo1 = ttk.Radiobutton(radioboton, text="Ecuacion", variable=self.opcion,  
                     value=1).pack(side=LEFT)
         self.metodo2 = ttk.Radiobutton(radioboton, text="Random", variable=self.opcion,
                     value=2, ).pack(side=LEFT)
@@ -125,7 +124,7 @@ class Analisis(ttk.Frame):
 
         # Valor de cálculo
 
-        ttk.Label(intervalos, text="A: ",
+        ttk.Label(intervalos, text="A: ", 
                   justify=LEFT).pack(side=LEFT)
         self.campoA = Entry(intervalos,width=8)
         self.campoA.pack(side=LEFT)
@@ -142,7 +141,7 @@ class Analisis(ttk.Frame):
         self.media = Entry(media, width=10)
         self.media.pack()
 
-        ttk.Label(desv, text="Desviacion :",
+        ttk.Label(desv, text="Desviación :", 
                   justify=LEFT).pack(side=LEFT)
         self.desv = Entry(desv, width=10)
         self.desv.pack()
@@ -163,6 +162,7 @@ class Analisis(ttk.Frame):
                                  relief="raised", borderwidth=3,
                                  width=20,
                                  cursor="hand1",
+                                 font=("Helvetica", 9, "bold"),
                                 command=lambda: 
                                 self.simula())
 
@@ -177,6 +177,7 @@ class Analisis(ttk.Frame):
                                  activebackground="white",
                                  relief="raised", borderwidth=3,
                                  width=15,
+                                 font=("Helvetica", 9, "bold") ,
                                  cursor="hand1"
                                  )
 
@@ -244,21 +245,19 @@ class Analisis(ttk.Frame):
 
     def simula(self):
         
-        # Validación para el combo de tipo de simulación
+        # Validación para el Tipo de Simulacion
         if not self.opcion.get():
             messagebox.showerror(
-                "Error", "No se seleccionó un tipo de simulación.")
+                "Error", "Por Favor Selecciona un Tipo de Simulación")
             sys.exit(2)
 
-        # Validación para el combo de tipo de problema para calcular
-
+        # Validación para el combobox
         if not self.opciones.get():
             messagebox.showerror(
-                "Error", "No se seleccionó un tipo de problema.")
+                "Error", "Por Favor Selecciona un Tipo de Intervalo")
             sys.exit(2)
         
-        # Validez para el campo a calcular
-
+        # Validación para el Intervalo Inicial
         try:
             valor_inicial = float(self.campoA.get())
             if valor_inicial <= 0:
@@ -267,7 +266,7 @@ class Analisis(ttk.Frame):
                 sys.exit(2)
         except ValueError:
             messagebox.showerror(
-                "Error", "Debe indicar los valores por calcular")
+                "Error", "Debe Indicar los Valores por Calcular")
             sys.exit(2)
 
 
@@ -275,38 +274,38 @@ class Analisis(ttk.Frame):
         tipo_problema = self.tipointervalo(self.opciones.get())
 
         if tipo_problema==5:
-            #validacion para el campo a<x<b
+            # Validacion para el Intervalo Final
             try:
                 valor_final = float(self.campoB.get())
                 if valor_final <= 0:
-                    messagebox.showerror("Error", "La probabilidad final no puede")
+                    messagebox.showerror("Error", "Los valores no pueden ser negativos")
                     sys.exit(2)
             except ValueError:
-                messagebox.showerror("Error", "Debe declarar el valor final")
+                messagebox.showerror("Error", "Debe Declarar el Valor Final")
                 sys.exit(2)
             if valor_final <= valor_inicial:
-                messagebox.showerror("Error", "No es posible realizar el calculo")
+                messagebox.showerror("Error", "No es Posible Realizar el Calculo")
                 sys.exit(2)
         
         #Valores de acuerdo a la distribucion normal
         valores = self.valores_normales(metodo_simular)
         suma = 0
         for j in valores:
-            if tipo_problema ==1:
+            if tipo_problema == 1:
                 if j < valor_inicial:
                     suma +=1
-            elif tipo_problema ==2:
+            elif tipo_problema == 2:
                 if j <= valor_inicial:
                     suma +=1
-            elif tipo_problema ==3:
+            elif tipo_problema == 3:
                 if j > valor_inicial:
                     suma +=1
-            elif tipo_problema ==4:
+            elif tipo_problema == 4:
                 if j >= valor_inicial:
-                    suma +=1
+                    suma += 1
             else:
                 if j <= valor_final and j >= valor_inicial:
-                    suma +=1
+                    suma += 1
         
         probabilidad = round((suma/self.repeticiones)*100,2)
         
@@ -315,7 +314,7 @@ class Analisis(ttk.Frame):
         self.solucion.config(textvariable=re)
         var = []
         var = self.datos, valores
-        fig = plt.figure(figsize =(10, 7))
+        fig = plt.figure(figsize = (10, 7))
 
         # Creating plot
         plt.boxplot(var)
@@ -324,7 +323,7 @@ class Analisis(ttk.Frame):
         
         
 
-        
+   
 
 def main():
     root = Tk()
